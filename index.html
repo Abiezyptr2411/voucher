@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>LovePass ❤️ - Voucher Cinta Eksklusif untuk Istri</title>
+  <meta name="description" content="Aplikasi voucher cinta eksklusif untuk istri tercinta. Pilih kupon hadiah impianmu dengan musik romantis dan desain voucher modern." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❤️</text></svg>" />
+  
+  <!-- Modern Clean Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/src/style.css" />
+  <!-- YouTube IFrame API for Right Here Waiting Saxophone (https://youtu.be/dymHx4cAYo8) -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+
+  <!-- Hidden YouTube Audio Player -->
+  <div id="youtubeAudioPlayerContainer" style="position: fixed; bottom: -9999px; left: -9999px; width: 200px; height: 200px; opacity: 0; pointer-events: none;" aria-hidden="true">
+    <div id="youtubePlayer"></div>
+  </div>
+
+  <!-- Ambient Glowing Background Elements -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="ambient-hearts" id="ambientHearts" aria-hidden="true"></div>
+
+  <!-- ==============================================
+       INTRO EXPERIENCE GATEWAY (EFEK AWAL)
+       ============================================== -->
+  <div class="intro-gateway" id="introGateway" role="dialog" aria-modal="true" aria-label="Surat Kejutan Cinta">
+    <div class="intro-backdrop"></div>
+    <div class="intro-container">
+      
+      <!-- 3D Romantic Envelope -->
+      <div class="envelope-scene" id="envelopeScene">
+        <div class="envelope-outer" id="envelopeOuter">
+          <div class="envelope-back"></div>
+          
+          <div class="envelope-letter" id="envelopeLetter">
+            <div class="letter-stamp">💌</div>
+            <div class="letter-heading">Untuk Istriku Tercinta</div>
+            <div class="letter-body">
+              "Setiap voucher di dalam ini adalah janji cinta suamimu. Pilih apapun yang kamu mau hari ini, aku siap mewujudkannya untukmu..."
+            </div>
+            <div class="letter-sign">❤️ Suamimu</div>
+          </div>
+          
+          <div class="envelope-front-left"></div>
+          <div class="envelope-front-right"></div>
+          <div class="envelope-front-bottom"></div>
+          <div class="envelope-flap" id="envelopeFlap"></div>
+          
+          <button type="button" class="wax-seal" id="waxSealBtn" aria-label="Buka Segel Cinta">
+            <span class="wax-seal-icon">❤️</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Intro Text & CTA -->
+      <div class="intro-text-box">
+        <div class="intro-pill">🌹 SPECIAL SURPRISE GIFT 🌹</div>
+        <h1 class="intro-title">Voucher Cinta untuk Istri</h1>
+        <p class="intro-desc">
+          Ada 5 kejutan manis spesial untuk memanjakanmu hari ini.
+          Ketuk surat cinta di atas untuk membukanya!
+        </p>
+
+        <button type="button" class="btn-open-intro" id="btnOpenIntro">
+          <span>Buka Hadiah Spesial Sayang ❤️</span>
+        </button>
+        
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ==============================================
+       TOP APP HEADER (MINIMALIST & CLEAN)
+       ============================================== -->
+  <header class="app-header">
+    <div class="header-container">
+      
+      <!-- Brand -->
+      <div class="header-brand" id="brandLogo" role="button" tabindex="0">
+        <div class="header-logo-icon">❤️</div>
+        <div class="header-logo-text">
+          <h2>LovePass</h2>
+          <span>For My Beloved Wife</span>
+        </div>
+      </div>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <!-- Replay Letter Button -->
+        <button type="button" class="btn-header-action" id="btnReplayIntro" title="Buka kembali Surat Kejutan">
+          <span>💌 Surat</span>
+        </button>
+
+        <!-- Sync Indicator -->
+        <div class="sync-indicator-dot offline" id="syncStatusBadge" title="Status Supabase Online">
+          <span class="sync-dot"></span>
+        </div>
+      </div>
+      
+    </div>
+  </header>
+
+
+  <!-- ==============================================
+       MAIN APP CONTENT
+       ============================================== -->
+  <main class="app-main-content">
+
+    <!-- ==============================================
+         VIEW 1: VOUCHER GALLERY (MAIN VIEW)
+         ============================================== -->
+    <section id="wifeGalleryView" class="view-panel">
+      
+      <!-- Modern Hero Card -->
+      <div class="modern-hero-card">
+        <div class="hero-chip">✨ SPESIAL UNTUK BIDADARIKU</div>
+        <h1 class="modern-hero-title">Voucher Cinta Eksklusif ❤️</h1>
+        <p class="modern-hero-desc">
+          Setiap voucher di bawah ini siap ditebus kapan saja. Pilih voucher yang kamu inginkan dan biarkan suamimu memanjakanmu hari ini!
+        </p>
+        
+        <div class="hero-stats-row">
+          <div class="hero-stat-pill">
+            <span class="hero-stat-num">5</span>
+            <span>Voucher Siap</span>
+          </div>
+          <div class="hero-stat-pill gold">
+            <span>👑 100% Gratis untuk Istri</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modern Horizontal Category Filter Strip -->
+      <div class="filter-strip-wrapper">
+        <div class="filter-strip" id="categoryFilterPills">
+          <button type="button" class="filter-chip active" data-category="all">✨ Semua (5)</button>
+          <button type="button" class="filter-chip" data-category="available">Belum Dipilih</button>
+          <button type="button" class="filter-chip" data-category="Dinner">🍷 Dinner</button>
+          <button type="button" class="filter-chip" data-category="Cuci Piring">🍽️ Cuci Piring</button>
+          <button type="button" class="filter-chip" data-category="SPA">💆‍♀️ SPA</button>
+          <button type="button" class="filter-chip" data-category="Shopping">🛍️ Shopping</button>
+          <button type="button" class="filter-chip" data-category="Mijetin Suami">💆‍♂️ Mijetin Suami</button>
+        </div>
+      </div>
+
+      <!-- Quick Search Bar -->
+      <div class="modern-search-wrap">
+        <span class="search-ico">🔍</span>
+        <input type="text" id="couponSearchInput" placeholder="Cari nama voucher..." aria-label="Cari voucher" />
+      </div>
+
+      <!-- Modern Voucher List Container -->
+      <div class="vouchers-list" id="couponsGrid">
+        <!-- Vouchers injected dynamically by JavaScript -->
+      </div>
+    </section>
+
+
+    <!-- ==============================================
+         VIEW 2: SELECTED VOUCHERS (MY VOUCHERS)
+         ============================================== -->
+    <section id="wifeSelectedView" class="view-panel" style="display: none;">
+      <div class="view-header-row">
+        <div>
+          <h2>Voucher Pilihan Saya ❤️</h2>
+          <p>Daftar voucher hadiah yang telah kamu pilih.</p>
+        </div>
+      </div>
+
+      <div class="filter-strip-wrapper" style="margin-bottom: 1.25rem;">
+        <div class="filter-strip" id="selectedStatusFilterPills">
+          <button type="button" class="filter-chip active" data-status="all">Semua</button>
+          <button type="button" class="filter-chip" data-status="selected">⏳ Menunggu Suami</button>
+          <button type="button" class="filter-chip" data-status="in_progress">💖 Sedang Disiapkan</button>
+          <button type="button" class="filter-chip" data-status="completed">🎉 Selesai</button>
+        </div>
+      </div>
+
+      <div class="selected-list" id="selectedCouponsList">
+        <!-- Injected dynamically -->
+      </div>
+    </section>
+
+
+    <!-- ==============================================
+         VIEW 3: HUSBAND PORTAL (COMMAND CENTER)
+         ============================================== -->
+    <section id="husbandPortalView" class="view-panel" style="display: none;">
+      <div class="husband-portal-card">
+        <div class="husband-header-row">
+          <div>
+            <h2>👑 Portal Suami</h2>
+            <p>Kelola permintaan voucher istri dan berikan update.</p>
+          </div>
+          <div class="husband-btn-group">
+            <button type="button" class="btn-modern-sm" id="btnOpenDbConfig">⚙️ Database</button>
+            <button type="button" class="btn-modern-sm danger" id="btnHusbandLogout">Keluar</button>
+          </div>
+        </div>
+
+        <!-- Cloud sync banner -->
+        <div id="husbandSyncBanner" class="modern-sync-box">
+          <div class="sync-box-text">
+            <strong id="husbandSyncTitle">⚠️ Mode Lokal</strong>
+            <p id="husbandSyncDesc">Hubungkan Supabase agar sinkron otomatis dengan HP istri.</p>
+          </div>
+          <button type="button" class="btn-action-pill" id="btnBannerSetupDb">Hubungkan</button>
+        </div>
+
+        <!-- Metrics -->
+        <div class="modern-stats-row">
+          <div class="mstat-item">
+            <div class="mstat-num" id="statTotalCount">0</div>
+            <div class="mstat-label">Total Dipilih</div>
+          </div>
+          <div class="mstat-item">
+            <div class="mstat-num" id="statSelectedCount">0</div>
+            <div class="mstat-label">Menunggu</div>
+          </div>
+          <div class="mstat-item">
+            <div class="mstat-num" id="statProgressCount">0</div>
+            <div class="mstat-label">Disiapkan</div>
+          </div>
+          <div class="mstat-item">
+            <div class="mstat-num" id="statCompletedCount">0</div>
+            <div class="mstat-label">Selesai</div>
+          </div>
+        </div>
+
+        <div class="filter-strip-wrapper" style="margin: 1rem 0;">
+          <div class="filter-strip" id="husbandStatusFilterPills">
+            <button type="button" class="filter-chip active" data-hstatus="all">Semua</button>
+            <button type="button" class="filter-chip" data-hstatus="selected">Menunggu</button>
+            <button type="button" class="filter-chip" data-hstatus="in_progress">Disiapkan</button>
+            <button type="button" class="filter-chip" data-hstatus="completed">Selesai</button>
+          </div>
+        </div>
+
+        <div class="selected-list" id="husbandCouponsList">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ==============================================
+       FLOATING BOTTOM NAVIGATION BAR (MODERN APP DOCK)
+       ============================================== -->
+  <nav class="bottom-dock-nav" aria-label="Navigasi Aplikasi">
+    <div class="dock-container">
+      
+      <!-- Tab 1: Voucher Gallery -->
+      <button type="button" class="dock-tab-btn active" id="tabExplore">
+        <span class="dock-tab-icon">🎟️</span>
+        <span class="dock-tab-label">Voucher</span>
+      </button>
+
+      <!-- Tab 2: Wife's Selected -->
+      <button type="button" class="dock-tab-btn" id="tabMySelected">
+        <span class="dock-tab-icon">
+          ❤️
+          <span class="dock-badge-num" id="navSelectedCount">0</span>
+        </span>
+        <span class="dock-tab-label">Pilihan</span>
+      </button>
+
+      <!-- Tab 3: Romantic Music Player -->
+      <button type="button" class="dock-tab-btn music-tab" id="btnMusicToggle" title="Putar / Jeda Lagu">
+        <div class="dock-vinyl-disc" id="vinylDisc">🎵</div>
+        <span class="dock-tab-label" id="musicStatusText">Lagu</span>
+      </button>
+
+      <!-- Tab 4: Husband Portal Access -->
+      <button type="button" class="dock-tab-btn" id="btnHusbandToggle">
+        <span class="dock-tab-icon" id="husbandBtnIcon">🔒</span>
+        <span class="dock-tab-label" id="husbandBtnText">Suami</span>
+      </button>
+
+    </div>
+  </nav>
+
+
+  <!-- ==============================================
+       MODAL 1: COUPON DETAIL MODAL (PILIH & KLAIM)
+       ============================================== -->
+  <div class="modal-backdrop" id="couponDetailModal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="btnCloseDetailModal" aria-label="Tutup">✕</button>
+      
+      <div class="modal-hero-img-wrap">
+        <img src="" alt="Voucher Hadiah" id="modalCouponImg" class="modal-hero-img" />
+        <div class="modal-hero-gradient"></div>
+        <div class="modal-hero-title-box">
+          <span id="modalCouponCategory" class="modal-cat-badge">Category</span>
+          <h3 id="modalCouponTitle">Coupon Title</h3>
+          <div class="modal-vch-code" id="modalCouponCode">№ VCH-001</div>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <div>
+          <div class="modal-section-title">✨ Janji & Hadiah Suami</div>
+          <p id="modalCouponDesc" class="modal-desc-text"></p>
+        </div>
+
+        <div>
+          <div class="modal-section-title">📜 Ketentuan Penggunaan Voucher</div>
+          <ul class="modal-terms-list" id="modalCouponTerms">
+            <!-- Injected -->
+          </ul>
+        </div>
+
+        <div>
+          <div class="modal-section-title">💌 Pesan Manis dari Suami</div>
+          <div class="modal-husband-quote" id="modalCouponHusbandMessage"></div>
+        </div>
+
+        <div class="modal-wife-note-box">
+          <label for="modalWifeNote">📝 Catatan Khusus Kamu (Opsional):</label>
+          <textarea id="modalWifeNote" placeholder="Contoh: 'Mau makan sushi di resto favorit ya sayang!' atau 'Akhir pekan ini ya ❤️'"></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-modal-cancel" id="btnCancelDetailModal">Batal</button>
+          <button type="button" class="btn-modal-claim" id="btnConfirmClaimCoupon">
+            Klaim Voucher Ini ❤️
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==============================================
+       MODAL 2: CELEBRATION CONFIRMATION MODAL
+       ============================================== -->
+  <div class="modal-backdrop" id="celebrationModal" role="dialog" aria-modal="true">
+    <div class="modal-card celebration-modal-card">
+      <div class="celebration-heart-icon">❤️</div>
+      <h3 class="celebration-headline">Yay! Pilihan Diterima! ❤️</h3>
+      
+      <div class="celebration-message-box">
+        <p>
+          "Pilihan voucher cinta kamu sudah tersimpan, Sayang. Suamimu yang setia ini akan bersiap memberikan pelayanan terbaik untukmu. I love you so much!"
+        </p>
+      </div>
+
+      <div class="celebration-actions">
+        <button type="button" class="btn-modal-claim" id="btnViewMySelectedCoupons">
+          Lihat Kupon Pilihan Saya ❤️
+        </button>
+        <button type="button" class="btn-modal-cancel" id="btnCloseCelebrationModal">
+          Pilih Voucher Lainnya ✨
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==============================================
+       MODAL 3: HUSBAND PIN ACCESS MODAL
+       ============================================== -->
+  <div class="modal-backdrop" id="husbandPinModal" role="dialog" aria-modal="true">
+    <div class="modal-card pin-login-card">
+      <button type="button" class="modal-close-btn" id="btnClosePinModal" aria-label="Tutup">✕</button>
+      <div class="pin-icon">🔐</div>
+      <h3>Akses Portal Suami</h3>
+      <p>Masukkan PIN keamanan suami untuk mengelola voucher pilihan istri.</p>
+
+      <form id="pinLoginForm">
+        <div class="pin-input-group">
+          <input type="password" id="husbandPinInput" maxlength="6" placeholder="••••" autocomplete="off" />
+          <div class="pin-error-hint" id="pinErrorHint">PIN salah! Coba default: 1402</div>
+        </div>
+        <button type="submit" class="btn-modal-claim" style="width: 100%;">
+          Buka Akses Suami
+        </button>
+        <div style="margin-top: 0.75rem; font-size: 0.78rem; color: #94a3b8;">
+          PIN Default: <strong>1402</strong> (Hari Kasih Sayang)
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- ==============================================
+       MODAL 4: SUPABASE DATABASE CONFIGURATION
+       ============================================== -->
+  <div class="modal-backdrop" id="supabaseConfigModal" role="dialog" aria-modal="true">
+    <div class="modal-card db-modal-card">
+      <button type="button" class="modal-close-btn" id="btnCloseDbModal" aria-label="Tutup">✕</button>
+      
+      <div class="db-modal-header">
+        <h3>⚡ Konfigurasi Supabase Online Database</h3>
+        <p>Agar voucher yang dipilih istri langsung muncul di HP suami secara real-time, hubungkan project Supabase gratis Anda.</p>
+      </div>
+
+      <!-- Step 1: SQL Script -->
+      <div class="step-box">
+        <div class="step-box-header">
+          <span>Langkah 1: Siapkan Tabel di Supabase SQL Editor</span>
+          <button type="button" class="filter-chip" id="btnCopySql">
+            📋 Salin SQL
+          </button>
+        </div>
+        <div class="sql-code-preview" id="sqlPreviewCode"></div>
+      </div>
+
+      <!-- Step 2: Credentials Form -->
+      <div class="step-box">
+        <div class="step-box-header">
+          <span>Langkah 2: Masukkan Kredensial Project</span>
+        </div>
+        
+        <div class="form-group">
+          <label for="inputSupabaseUrl">Supabase Project URL</label>
+          <input type="url" id="inputSupabaseUrl" placeholder="https://xyz.supabase.co" />
+        </div>
+
+        <div class="form-group">
+          <label for="inputSupabaseAnonKey">Supabase Anon Public Key</label>
+          <input type="text" id="inputSupabaseAnonKey" placeholder="eyJhbGciOiJIUzI1NiIsIn..." />
+        </div>
+
+        <div id="dbTestResultBox" class="db-test-result-box"></div>
+
+        <div style="display: flex; gap: 0.75rem; justify-content: flex-end; margin-top: 1rem;">
+          <button type="button" class="btn-modal-cancel" id="btnResetDbConfig">
+            Reset Lokal
+          </button>
+          <button type="button" class="btn-modal-claim" id="btnSaveAndTestDb">
+            Simpan
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Script -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
